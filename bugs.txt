@@ -1,0 +1,24 @@
+Marketing TODO
+
+
+
+-Post on r/dominion.
+
+
+-Find different names for the cards and Dominion terminology.
+
+-Blog post
+
+-Create a github repository
+
+Issues
+
+
+-You can play victory cards that aren't actions.
+-Players cannot see special rules for cards.
+-The game log has strange formatting for the card data.
+-When buying one Shanty Town, a player gets two of them(This is probably a bug that is not specific
+to Shanty Town).
+-Curse cards do not show up(For some reason, the Curse.curse object is empty, even after it is
+ supposedly created).
+ -Sometimes, players start with an empty hand.

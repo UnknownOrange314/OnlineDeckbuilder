@@ -1,0 +1,291 @@
+body{
+    font-family: 'Playfair Display SC', serif;
+}
+
+#title{
+    font-size:30px;
+}
+
+button {
+    margin-right:10px;
+    background-color: #D3002A;
+    color: #E5DD28;
+}
+
+.Treasure{
+    background-color: #FFA824;
+    color: #000000;
+}
+
+.Victory{
+    background-color: #414F12;
+    color: #000000;
+}
+
+
+.true{
+    background-color: #ffffff;
+}
+
+
+
+img.bg {
+    min-height: 100%;
+    min-width: 1024px;
+
+    width: 100%;
+    height: auto;
+
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+    img.bg {
+        left: 50%;
+        margin-left: -512px;   /* 50% */
+        width: 75%;
+    }
+}
+
+#die {
+    position: relative;
+    margin: 10px auto;
+    width: 100%;
+    padding: 20px;
+    background: rgba(255,255,255,0.7);
+    -moz-box-shadow: 0 0 10px #888888;
+    -webkit-box-shadow: 0 0 10px #888888;
+    box-shadow: 0 0 10px #888888;
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+}
+
+#content{
+    margin:0;
+    position:fixed;
+}
+
+#victorySupply button{
+    background-color: transparent; /* make the button transparent */
+    background-repeat: no-repeat;  /* make the background image appear only once */
+    background-position: 0px 0px;  /* equivalent to 'top left' */
+    border: none;           /* assuming we don't want any borders */
+    cursor: pointer;        /* make the cursor like hovering over an <a> element */
+    height: 36px;           /* make this the size of your image */
+    width:46px;
+    padding-left: 16px;     /* make text start to the right of the image */
+    vertical-align: middle; /* align the text vertically centered */
+}
+
+#treasureSupply button{
+    background-color: transparent; /* make the button transparent */
+    background-repeat: no-repeat;  /* make the background image appear only once */
+    background-position: 0px 0px;  /* equivalent to 'top left' */
+    border: none;           /* assuming we don't want any borders */
+    cursor: pointer;        /* make the cursor like hovering over an <a> element */
+    height: 36px;           /* make this the size of your image */
+    width:46px;
+    padding-left: 16px;     /* make text start to the right of the image */
+    vertical-align: middle; /* align the text vertically centered */
+}
+
+#actionSupply button{
+    background-color: transparent; /* make the button transparent */
+    background-repeat: no-repeat;  /* make the background image appear only once */
+    background-position: 0px 0px;  /* equivalent to 'top left' */
+    border: none;           /* assuming we don't want any borders */
+    cursor: pointer;        /* make the cursor like hovering over an <a> element */
+    height: 40px;           /* make this the size of your image */
+    width:46px;
+    padding-left: 16px;     /* make text start to the right of the image */
+    vertical-align: middle; /* align the text vertically centered */
+}
+
+.Asteroid{
+    background-image: url(images/base/Asteroid.png); /* 16px x 16px */
+}
+
+.Moon{
+    background-image: url(images/base/Moon.png); /* 16px x 16px */
+}
+
+.Rock{
+     background-image: url(images/base/Rock.png); /* 16px x 16px */
+ }
+
+.Planet{
+    background-image: url(images/base/Planet.png); /* 16px x 16px */
+}
+
+.Star{
+    background-image: url(images/base/Star.png); /* 16px x 16px */
+}
+
+.Silver{
+    background-image: url(images/base/Hydrogen.png); /* 16px x 16px */
+}
+
+.Gold{
+     background-image: url(images/base/Gold.png); /* 16px x 16px */
+ }
+
+
+.Diamond{
+    background-image: url(images/base/Diamond.png); /* 16px x 16px */
+}
+
+/**
+*Action cards
+*/
+
+.Miner{
+    background-image: url(images/base/Miner.png); /* 16px x 16px */
+}
+
+.Base{
+    background-image: url(images/Base.png); /* 16px x 16px */
+}
+
+.Camp{
+    background-image: url(images/prosperity/Colony.png); /* 16px x 16px */
+}
+
+.Metalworker{
+    background-image: url(images/base/Metalworker.png); /* 16px x 16px */
+}
+
+.Fair{
+    background-image: url(images/base/Fair.png); /* 16px x 16px */
+}
+
+.Lab{
+    background-image: url(images/base/Lab.png); /* 16px x 16px */
+}
+
+.Store{
+    background-image: url(images/base/Store.png); /* 16px x 16px */
+}
+
+.Shop{
+    background-image: url(images/base/Shop.png); /* 16px x 16px */
+}
+
+.Witch{
+    background-image: url(images/base/Witch.png); /* 16px x 16px */
+}
+
+.Soothsayer{
+    background-image: url(images/darkAges/Soothsayer.png); /* 16px x 16px */
+}
+
+.ShantyTown{
+    background-image: url(images/intrigue/ShantyTown.png); /* 16px x 16px */
+}
+
+.Chapel{
+    background-image: url(images/base/Chapel.png); /* 16px x 16px */
+}
+
+.Lighthouse{
+    background-image: url(images/seaside/Lighthouse.png); /* 16px x 16px */
+}
+
+.Crossroads{
+    background-image: url(images/hinterlands/Crossroads.png); /* 16px x 16px */
+}
+
+.PoorHouse{
+    background-image: url(images/darkAges/PoorHouse.png); /* 16px x 16px */
+}
+
+.Vagrant{
+    background-image: url(images/darkAges/Vagrant.png); /* 16px x 16px */
+}
+
+.Menagerie{
+    background-image: url(images/cornucopia/Menagerie.png); /* 16px x 16px */
+}
+
+.FishingVillage{
+    background-image: url(images/seaside/FishingVillage.png); /* 16px x 16px */
+}
+
+.Sage{
+    background-image: url(images/darkAges/Sage.png); /* 16px x 16px */
+}
+
+.GreatHall{
+    background-image: url(images/intrigue/GreatHall.png); /* 16px x 16px */
+}
+
+.Tactician{
+    background-image: url(images/seaside/Tactician.png); /* 16px x 16px */
+}
+
+.CouncilRoom{
+    background-image: url(images/base/CouncilRoom.png); /* 16px x 16px */
+}
+
+.SeaHag{
+    background-image: url(images/seaside/SeaHag.png); /* 16px x 16px */
+}
+
+.MerchantShip{
+      background-image: url(images/seaside/MerchantShip.png); /* 16px x 16px */
+}
+
+.HuntingParty{
+    background-image: url(images/cornucopia/HuntingParty.png); /* 16px x 16px */
+}
+
+.Adventurer{
+    background-image: url(images/base/Adventurer.png); /* 16px x 16px */
+}
+
+.FarmingVillage{
+     background-image: url(images/cornucopia/FarmingVillage.png); /* 16px x 16px */
+}
+
+.City{
+    background-image: url(images/prosperity/City.png); /* 16px x 16px */
+}
+
+.Harvest{
+      background-image: url(images/cornucopia/Harvest.png); /* 16px x 16px */
+}
+
+.Cutpurse{
+    background-image: url(images/seaside/Cutpurse.png); /* 16px x 16px */
+}
+
+.CountingHouse{
+    background-image: url(images/prosperity/CountingHouse.png); /* 16px x 16px */
+}
+
+.Caravan{
+    background-image: url(images/seaside/Caravan.png); /* 16px x 16px */
+}
+
+.Wharf{
+     background-image: url(images/seaside/Wharf.png); /* 16px x 16px */
+ }
+
+.TreasureMap{
+    background-image: url(images/seaside/TreasureMap.png); /* 16px x 16px */
+}
+
+.Fairgrounds{
+    background-image: url(images/cornucopia/Fairgrounds.png); /* 16px x 16px */
+}
+
+.Duke{
+    background-image: url(images/intrigue/Duke.png); /* 16px x 16px */
+}
+
+.Gardens{
+    background-image: url(images/base/Gardens.png); /* 16px x 16px */
+}

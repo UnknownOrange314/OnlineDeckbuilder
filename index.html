@@ -1,0 +1,152 @@
+<!Doctype html>
+<html lang="en" ng-app="phonecatApp">
+<head>
+    <meta charset="utf-8">
+    <title>StarBuild</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="lib/angular.min.js"></script>
+
+    <script src="controller/base/chapelView.js"></script>
+
+    <script src="model/cards/baseSetActions.js"></script>
+    <script src="model/cards/intrigueActions.js"></script>
+    <script src="model/cards/cornucopiaActions.js"></script>
+    <script src="model/cards/seasideActions.js"></script>
+    <script src="model/cards/prosperityActions.js"></script>
+    <script src="model/cards/hinterlandsActions.js"></script>
+    <script src="model/cards/darkAgeActions.js"></script>
+    <script src="model/cards/attackAction.js"></script>
+
+    <script src="model/cards/treasureRules.js"></script>
+    <script src="model/cards/treasure.js"></script>
+    <script src="model/cards/victory.js"></script>
+    <script src="model/cards/curse.js"></script>
+    <script src="model/cards/action.js"></script>
+    <script src="model/cards/cardDef.js"></script>
+
+    <script src="model/player.js"></script>
+    <script src="model/game.js"></script>
+    <script src="model/card.js"></script>
+    <script src="model/pile.js"></script>
+    <script src="model/log.js"></script>
+    <script src="model/ai.js"></script>
+
+    <script src="controller/playOpt.js"></script>
+    <script src="controller/controllers.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body ng-controller="PhoneListCtrl">
+
+<img class="bg" src="images/background.jpg" />
+<div id="content">
+<div id="die">
+    <div id="title">Star Build Prototype</div>
+        <div id="supply"> <!--The area where the cards in the supply is shown -->
+            <span ng-repeat="card in supply">
+                <button ng-click="buyCard(card.name)">{{card.data}}</button> {{card.num}}
+            </span>
+
+            <table style="width:100%">
+                <tr>
+
+                <td>
+                    <div id="actionSupply">
+                        <p ng-repeat="card in actionSupply">
+                            {{card.name}}
+                            {{card.cost}}
+                            <button class="{{card.name}}" ng-click="buyCard(card.name)">
+
+                            </button> {{card.data}} Supply {{card.num}}
+                        </p>
+                    </div>
+                </td>
+
+                <td>
+                    <div id="victorySupply">
+                    <p ng-repeat="card in victorySupply">
+                    {{card.name}}
+                    {{card.cost}}
+
+                    <button class="{{card.name}}" ng-click="buyCard(card.name)"></button> {{card.data}} Supply {{card.num}}
+                    </p>
+                    </div>
+
+                    <div id="treasureSupply">
+                        <p ng-repeat="card in treasureSupply">
+                            {{card.cost}}
+                            <button class="{{card.name}}" ng-click="buyCard(card.name)"></button> {{card.data}} Supply {{card.num}}
+                        </p>
+                    </div>
+                </td>
+                <td>
+
+                </td>
+
+                <td>
+                    <div id="log">
+                        <h3>Game log</h3>
+                        <p ng-repeat="message in log">
+                            {{message}}
+                        </p>
+                    </div>
+                </td>
+                <td>
+                    <div id="status"> <!-- The area where a player's status during a turn is shown. -->
+                        <h3>Game status</h3>
+                        <div id="money">{{money}}</div>
+                        <div id="actions">{{actions}}</div>
+                        <div id="buys">{{buys}}</div>
+                    </div>
+                </td>
+                <td>
+                    <div id="discard"> <!--Shows a player's discard pile. -->
+                        <h3>{{discardPile}}</h3>
+                    </div>
+
+                    <div id="draw"> <!--Shows a player's draw pile. -->
+                        <h3>{{drawPile}}</h3>
+                    </div>
+
+                    <div id="play"> <!--The area where played card is shown -->
+                        <h3>Deployment area</h3>
+                        <span ng-repeat="card in play">
+                            {{card.name}}
+                        </span>
+                    </div>
+
+                    <div id="cardInput"> <!--The area where the user interface for card input is shown.-->
+                        {{instructions}}
+                        <span ng-repeat="option in options">
+                            <button class="{{option.selected}}" ng-click="playOpt(option.id)">{{option.name}}</button>
+
+                        </span>
+
+                        <button ng-click="finishPlay()">{{end}}</button>
+                    </div>
+
+                </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+
+
+
+        <div id="hand"> <!-- The area where the player's hand is shown. -->
+            <h3>Hand</h3>
+            <span ng-repeat="card in hand">
+                {{card.type}}
+                <button  class="{{card.type}}" ng-click="playCard(card.id)">{{card.name}} {{card.data}} {{card.cost}}</button>
+            </span>
+
+            <button ng-click="playTreasures()">Play treasures</button>
+
+        </div>
+        <button class="roll" ng-click="endTurn()">End turn</button>
+</div>
+</div>
+</body>
+</html>
