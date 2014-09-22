@@ -47,3 +47,14 @@ BaseSetActions.chapelTrash=function(selCards,user){
     });
     user.setHand(newHand);
 }
+
+BaseSetActions.moneylender=function(selCards,user){
+    var newHand=Array();
+    user.getHand().forEach(function(card){
+        if(card.getData()==CardDef.copper){
+            user.addMoney(3);
+        }
+        newHand.push(card);
+    });
+    return newHand;
+}

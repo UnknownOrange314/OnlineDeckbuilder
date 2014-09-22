@@ -4,9 +4,7 @@ function Game(){
     var turns=1;
     var p1=new Player(this);//The player
     var p2=new Player(this);
-
     var activePlayer=p1;
-
     var piles={};
     var log=new Log();
 
@@ -19,13 +17,15 @@ function Game(){
         Object.keys(piles).forEach(function(name){
             var pile=piles[name];
             if(pile.getCardNum()==0){
+                console.log("Empty pile:"+name)
                 empty++;
             }
         });
         return empty;
     }
+
     this.gameEnd=function(){
-        if(piles["Star"].getCardNum()==0){
+        if(piles[CardDef.VP4].getCardNum()==0){
             return true;
         }
         var empty=this.countEmptyPiles();
@@ -79,11 +79,10 @@ function Game(){
         p2.drawCards(5);
 
         piles[CardDef.curse.getName()]=new Pile(CardDef.curse);
-        console.log("Setting up curse:"+JSON.stringify(CardDef.curse));
         piles[CardDef.copper.getName()]=new Pile(CardDef.copper);
         piles[CardDef.silver.getName()]=new Pile(CardDef.silver);
         piles[CardDef.gold.getName()]=new Pile(CardDef.gold);
-        piles[CardDef.platinum.getName()]=new Pile(CardDef.platinum);
+        piles[CardDef.harem.getName()]=new Pile(CardDef.harem);
 
         piles[CardDef.estate.getName()]=new Pile(CardDef.estate);
         piles[CardDef.duchy.getName()]=new Pile(CardDef.duchy);

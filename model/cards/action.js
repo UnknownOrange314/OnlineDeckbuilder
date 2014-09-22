@@ -111,6 +111,7 @@ Action.fishingVillageDuration=new Action(1,0,1,0,null);
 Action.sage=new Action(1,0,0,0,DarkAgeActions.sage);
 Action.greatHall=new Action(1,1,0,0,null);
 
+Action.moneylender=new Action(0,0,0,0,BaseSetActions.moneylender);
 Action.conspirator=new Action(0,0,2,0,IntrigueActions.conspirator);
 Action.workersVillage=new Action(2,1,0,1,null);
 Action.smithy=new Action(0,3,0,0,null);
@@ -126,7 +127,7 @@ Action.ironmonger=new Action(1,1,0,0,DarkAgeActions.ironmonger);
 Action.rabble=new Action(0,3,0,0,AttackAction.rabble);
 Action.city=new Action(2,1,0,0,ProsperityActions.city);
 Action.merchantShip=new Action(0,0,2,0,null);
-Action.wharf=new Action(2,0,1,0,null);
+Action.wharf=new Action(0,2,1,0,null);
 Action.tactician=new Action(0,0,0,0,SeasideActions.tactician);
 Action.tacticianDuration=new Action(1,5,0,1,null);
 Action.huntingParty=new Action(1,1,0,0,CornucopiaActions.huntingParty);

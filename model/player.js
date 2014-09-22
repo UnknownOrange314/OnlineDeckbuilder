@@ -256,7 +256,6 @@ function Player(game){
      */
     this.buyCard=function(card){
         if(card.getCost()<=money&&buys>0){
-            discard.push(card);
             buys--;
             money-=card.getCost();
             this.gainCard(card);

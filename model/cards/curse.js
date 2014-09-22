@@ -9,4 +9,3 @@ function Curse(pts){
 }
 
 Curse.curse=new Curse(-1);
-console.log("Curse:"+JSON.stringify(Curse.curse));

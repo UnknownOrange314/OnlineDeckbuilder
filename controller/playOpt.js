@@ -16,8 +16,13 @@ function PlayOpt(game){
         optCard=card;
     }
 
-    this.playOpt=function(id){
-        optSel.push(id);
+    this.toggleSelect=function(id){
+        var idx=optSel.indexOf(id);
+        if(idx==-1){  //Select card.
+            optSel.push(id);
+        }else{ //Deselect card.
+            optSel.splice(idx,1);
+        }
     }
 
     /**

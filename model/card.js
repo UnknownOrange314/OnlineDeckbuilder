@@ -10,7 +10,7 @@ Card.prototype.getRules=function(){
 }
 
 Card.prototype.hasType=function(type){
-    return this.data.hasSubtype(type);
+    return this.data.hasType(type);
 }
 Card.prototype.getMainType=function(){
     return this.data.getMainType();
@@ -91,7 +91,6 @@ Card.prototype.requiresInput=function(){
 
 //Returns data to define the user interface that is necessary when the card is played
 Card.prototype.getUI=function(player,cardSelect){
-    console.log("Getting UI with cards:"+cardSelect);
     return this.data.getUI(player,cardSelect);
 }
 
@@ -115,6 +114,10 @@ Card.prototype.hasDuration=function(){
 
 Card.prototype.getDuration=function(){
     return this.data.getDuration();
+}
+
+Card.prototype.getRules=function(){
+    return this.data.getRules();
 }
 
 Card.num=0; //This is a running count of the total number of cards. It is used to generate unique IDs for the cards.

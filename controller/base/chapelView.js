@@ -8,11 +8,8 @@ ChapelView.playInstructions=function(){
 
 ChapelView.chapelUI=function(user,cards){
     var data=Array();
-    console.log("Selected cards:"+JSON.stringify(cards));
     user.getHand().forEach(function(card){
-        var cData={};
-        cData["id"]=card.getID();
-        cData["name"]=card.getName();
+        var cData=Render.getCardRender(card);
         if(cards.indexOf(card.getID())!=-1){
             cData["selected"]=true;
         }else{
@@ -20,6 +17,5 @@ ChapelView.chapelUI=function(user,cards){
         }
         data.push(cData);
     });
-    console.log(JSON.stringify(data));
     return data;
 }

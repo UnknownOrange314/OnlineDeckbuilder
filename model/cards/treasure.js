@@ -36,12 +36,13 @@ function Treasure(amt,setupNum,rules){
     }
 }
 
-Treasure.copper=new Treasure(1,60);
-Treasure.silver=new Treasure(2,40);
-Treasure.gold=new Treasure(3,30);
-Treasure.platinum=new Treasure(5,10);
+Treasure.copper=new Treasure(1,60,null);
+Treasure.silver=new Treasure(2,40,null);
+Treasure.gold=new Treasure(3,30,null);
+Treasure.platinum=new Treasure(5,10,null);
 
-Treasure.harem=new Treasure(2,8);
+Treasure.harem=new Treasure(2,8,null);
 
 Treasure.venture=new Treasure(1,10,TreasureRules.venture);
 Treasure.bank=new Treasure(1,10,TreasureRules.bank);
+

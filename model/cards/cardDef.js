@@ -2,8 +2,8 @@
 function CardDef(cardData,cost,name,rules){
 
     var duration=null;
-
     var types=Array();
+    var points=0;
     types.push(cardData);
 
     this.getRules=function(){
@@ -51,7 +51,7 @@ function CardDef(cardData,cost,name,rules){
         return cardData.getMainType();
     }
 
-    this.hasSubtype=function(type){
+    this.hasType=function(type){
         var has=false;
         types.forEach(function(subType){
             if(type==subType.getMainType()){
@@ -121,7 +121,6 @@ function CardDef(cardData,cost,name,rules){
     }
 
     this.getUI=function(player,cards){
-        console.log("Getting UI with cards:"+cards);
         return cardData.inputUI(player,cards);
     }
 }
@@ -137,18 +136,21 @@ CardDef.Shelter="Shelter";
 CardDef.curse=new CardDef(Curse.curse,0,"Curse");
 
 //Treasure cards.
-CardDef.copper=new CardDef(Treasure.copper,0,"Rock");
-CardDef.silver=new CardDef(Treasure.silver,3,"Silver");
-CardDef.gold=new CardDef(Treasure.gold,6,"Gold");
+CardDef.copper=new CardDef(Treasure.copper,0,"Pence");
+CardDef.silver=new CardDef(Treasure.silver,3,"Shilling");
+CardDef.gold=new CardDef(Treasure.gold,6,"Pound");
 CardDef.platinum=new CardDef(Treasure.platinum,9,"Diamond");
-CardDef.venture=new CardDef(Treasure.venture,5,"Venture");
-CardDef.bank=new CardDef(Treasure.bank,7,"Bank");
+CardDef.venture=new CardDef(Treasure.venture,5,"Stock",
+    "Reveal cards until you reveal a Treasure. Play that treasure");
+CardDef.bank=new CardDef(Treasure.bank,7,"Bank",
+    "Worth 1 per treasure card you have in play(counting this)");
 
 //Victory cards.
-CardDef.estate=new CardDef(Victory.estate,2,"Asteroid");
-CardDef.duchy=new CardDef(Victory.duchy,5,"Moon");
-CardDef.province=new CardDef(Victory.province,8,"Planet");
-CardDef.colony=new CardDef(Victory.colony,11,"Star");
+CardDef.estate=new CardDef(Victory.estate,2,"Settlement");
+CardDef.duchy=new CardDef(Victory.duchy,5,"District");
+CardDef.province=new CardDef(Victory.province,8,"State");
+CardDef.VP4="Nation";
+CardDef.colony=new CardDef(Victory.colony,11,CardDef.VP4);
 
 /**
  * A list of action cards.
@@ -169,60 +171,121 @@ CardDef.necropolis=new CardDef(Action.necropolis,0,"Necropolis");
 CardDef.necropolis.addSubtype(CardDef.Shelter);
 
 //2 cost cards.
-CardDef.chapel=new CardDef(Action.chapel,2,"Chapel","Trash up to 4 cards from your hand");
-CardDef.lighthouse=new CardDef(Action.lighthouse,2,"Lighthouse");
+CardDef.chapel=new CardDef(Action.chapel,2,"Church","Scrap up to 4 cards from your hand.");
+
+CardDef.lighthouse=new CardDef(Action.lighthouse,2,"Beacon",
+"At the start of your next turn +$1. When this is in play, when another player plays an Attack card, it doesn't affect you.");
 CardDef.lighthouse.setDuration(Action.lighthouseDuration);
-CardDef.crossroads=new CardDef(Action.crossroads,2,"Crossroads");
-CardDef.poorHouse=new CardDef(Action.poorHouse,2,"PoorHouse");
-CardDef.vagrant=new CardDef(Action.vagrant,2,"Vagrant");
+
+CardDef.crossroads=new CardDef(Action.crossroads,2,"Intersection",
+"+1 card per victory card in your hand. If this is the first time you played an intersection this turn, +3 actions.");
+
+CardDef.poorHouse=new CardDef(Action.poorHouse,2,"Hut",
+"-$1 per Treasure card in your hand, to a minimum of $0.");
+
+CardDef.vagrant=new CardDef(Action.vagrant,2,"Vagabond",
+"Reveal the top card of your deck. If it's a curse, ruins, shelter, or victory card, put it in your hand.");
 
 //3 cost cards.
 CardDef.village=new CardDef(Action.village,3,"Base");
 CardDef.woodcutter=new CardDef(Action.woodcutter,3,"Miner");
-CardDef.menagerie=new CardDef(Action.menagerie,3,"Menagerie");
-CardDef.fishingVillage=new CardDef(Action.fishingVillage,3,"FishingVillage");
+CardDef.menagerie=new CardDef(Action.menagerie,3,"Zoo",
+"If there are no duplicate cards in your hand, +3 cards, otherwise +1 card.");
+
+CardDef.fishingVillage=new CardDef(Action.fishingVillage,3,"Fisherman",
+"At the start of your next turn +1 action, +$1");
 CardDef.fishingVillage.setDuration(Action.fishingVillageDuration);
-CardDef.shantyTown=new CardDef(Action.shantyTown,3,"ShantyTown");
-CardDef.sage=new CardDef(Action.sage,3,"Sage");
-CardDef.greatHall=new CardDef(Action.greatHall,3,"GreatHall");
+
+CardDef.shantyTown=new CardDef(Action.shantyTown,3,"Slum",
+"Reveal your hand, if you have no action cards in hand, +2 cards");
+
+CardDef.sage=new CardDef(Action.sage,3,"Shaman",
+"Reveal cards from the top of your deck until you reveal one costing +$3 or more. Put the card into your hand and discard the rest.");
+
+CardDef.greatHall=new CardDef(Action.greatHall,3,"MeetingHall");
 
 //4 cost cards.
+CardDef.moneylender=new CardDef(Action.moneylender,4,"Usurer",
+"Scrap a copper card from your hand, if you do, +$1");
+
 CardDef.workersVillage=new CardDef(Action.workersVillage,4,"Camp");
-CardDef.gardens=new CardDef(Victory.gardens,4,"Gardens");
+
+CardDef.gardens=new CardDef(Victory.gardens,4,"Park",
+"Worth 1VP for every 10 cards in your deck(rounded down).");
+
 CardDef.smithy=new CardDef(Action.smithy,4,"Metalworker");
-CardDef.seaHag=new CardDef(Action.seaHag,4,"SeaHag");
-CardDef.silkRoad=new CardDef(Victory.silkRoad,4,"SilkRoad");
-CardDef.feodum=new CardDef(Victory.feodum,4,"Feodum");
-CardDef.treasureMap=new CardDef(Action.treasureMap,4,"TreasureMap");
-CardDef.caravan=new CardDef(Action.caravan,4,"Caravan");
+
+CardDef.seaHag=new CardDef(Action.seaHag,4,"OceanWitch",
+"Each other player discards the top card of his deck, then gains a curse card, putting it on top of his deck.");
+
+CardDef.silkRoad=new CardDef(Victory.silkRoad,4,"TradingCompany",
+"Worth 1VP for every 4 victory cards in your deck(rounded down).");
+
+CardDef.feodum=new CardDef(Victory.feodum,4,"MoneyHouse",
+"Worth 1VP for every 3 silvers in your deck(rounded down).");
+
+CardDef.treasureMap=new CardDef(Action.treasureMap,4,"Atlas",
+"Scrap this and another copy of Atlas from your hand. If you do, gain 4 Gold cards, putting them on top of your deck.");
+
+CardDef.caravan=new CardDef(Action.caravan,4,"Convoy",
+"At the start of your next turn, +1 spell");
 CardDef.caravan.setDuration(Action.carvanDuration);
-CardDef.farmingVillage=new CardDef(Action.farmingVillage,4,"FarmingVillage");
-CardDef.cutpurse=new CardDef(Action.cutpurse,4,"Cutpurse");
+
+CardDef.farmingVillage=new CardDef(Action.farmingVillage,4,"Farm",
+"Reveal cards from the top of your deck until you reveal an action or treasure spell. Put that card into your hand and discard the other cards.");
+
+CardDef.cutpurse=new CardDef(Action.cutpurse,4,"Pickpocket",
+"Each player discards a pence, or reveals a hand with no pence.");
 
 
 //5 cost cards.
 CardDef.festival=new CardDef(Action.festival,5,"Fair");
-CardDef.laboratory=new CardDef(Action.laboratory,5,"Lab");
+CardDef.laboratory=new CardDef(Action.laboratory,5,"Scientist");
 CardDef.market=new CardDef(Action.market,5,"Store");
 CardDef.bazaar=new CardDef(Action.bazaar,5,"Shop");
-CardDef.witch=new CardDef(Action.witch,5,"Witch");
-CardDef.soothsayer=new CardDef(Action.soothsayer,5,"Soothsayer");
-CardDef.duke=new CardDef(Victory.duke,5,"Duke");
-CardDef.city=new CardDef(Action.city,5,"City");
-CardDef.merchantShip=new CardDef(Action.merchantShip,5,"MerchantShip");
-CardDef.merchantShip.setDuration(Action.merchantShip);
-CardDef.wharf=new CardDef(Action.wharf,5,"Wharf");
-CardDef.wharf.setDuration(Action.wharf);
-CardDef.tactician=new CardDef(Action.tactician,5,"Tactician");
-CardDef.tactician.setDuration(Action.tacticianDuration);
-CardDef.huntingParty=new CardDef(Action.huntingParty,5,"HuntingParty");
-CardDef.councilRoom=new CardDef(Action.councilRoom,5,"CouncilRoom");
-CardDef.harvest=new CardDef(Action.harvest,5,"Harvest");
-CardDef.countingHouse=new CardDef(Action.countingHouse,5,"CountingHouse");
 
-CardDef.adventurer=new CardDef(Action.adventurer,6,"Adventurer");
-CardDef.fairgrounds=new CardDef(Victory.fairgrounds,6,"Fairgrounds");
-CardDef.harem=new CardDef(Treasure.harem,6,"Harem");
+CardDef.witch=new CardDef(Action.witch,5,"Sorcerer","Each other player gains a curse spell.");
+
+CardDef.soothsayer=new CardDef(Action.soothsayer,5,"Psychic",
+"Gain a Gold. Each other player gains a curse. Each player who did draws a spell.");
+
+CardDef.duke=new CardDef(Victory.duke,5,"Priest",
+"Worth 1VP per Duchy you have");
+
+CardDef.city=new CardDef(Action.city,5,"Town",
+"If there are one or more empty supply piles, +1 spell. If there are two or more +$1, and +1 purchase.");
+
+CardDef.merchantShip=new CardDef(Action.merchantShip,5,"TradeBoat",
+"At the start of your next turn +$2");
+CardDef.merchantShip.setDuration(Action.merchantShip);
+
+CardDef.wharf=new CardDef(Action.wharf,5,"Pier",
+"At the start of your next turn +2 spells, +1 buy.");
+CardDef.wharf.setDuration(Action.wharf);
+
+CardDef.tactician=new CardDef(Action.tactician,5,"Strategist",
+"Discard your hand. If you discarded any spells this way, then at the start of your next turn, +5 spells,+1 purchase, +1 mana.");
+CardDef.tactician.setDuration(Action.tacticianDuration);
+
+CardDef.huntingParty=new CardDef(Action.huntingParty,5,"Hunters",
+"Reveal your hand. Reveal cards from your deck until you reveal a spell that isn't a duplicate of one in your hand. Put it into your hand and discard the rest");
+
+CardDef.councilRoom=new CardDef(Action.councilRoom,5,"Assembly",
+"Each other player draws a card");
+
+CardDef.harvest=new CardDef(Action.harvest,5,"Reaping",
+"Trash a copper card from your hand. If you do +$3.");
+
+CardDef.countingHouse=new CardDef(Action.countingHouse,5,"AccountOffice",
+"Place all copper cards from your discard pile into your hand.");
+
+CardDef.adventurer=new CardDef(Action.adventurer,6,"TradingCompany",
+"Reveal spells from your deck until you reveal 2 treasure spells. Put those treasure cards from your hand and discard the other revealed cards.");
+
+CardDef.fairgrounds=new CardDef(Victory.fairgrounds,6,"Carnival",
+"Worth 2 for every 5 differently named cards in your deck(rounded down).");
+
+CardDef.harem=new CardDef(Treasure.harem,6,"Plantation");
 CardDef.harem.setPoints(2);
 
 CardDef.kingdomCards=[CardDef.chapel,
@@ -244,6 +307,7 @@ CardDef.kingdomCards=[CardDef.chapel,
     CardDef.silkRoad,
     CardDef.feodum,
     CardDef.treasureMap,
+    CardDef.moneylender,
     CardDef.caravan,
     CardDef.farmingVillage,
     CardDef.cutpurse,

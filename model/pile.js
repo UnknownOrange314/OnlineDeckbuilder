@@ -3,9 +3,10 @@ function Pile(cardInfo){
     var supply=[];
 
     this.getDefaultSupply=function(){
-        if(cardInfo.getMainType()==CardDef.Victory){
+        if(cardInfo.hasType(CardDef.Victory)){
             return 8;
-        }if(cardInfo.getMainType()==CardDef.Action){
+        }
+        else if(cardInfo.hasType(CardDef.Action)){
             return 10;
         }
         if(cardInfo.getName()==CardDef.copper.getName()){
@@ -15,6 +16,8 @@ function Pile(cardInfo){
         }if(cardInfo.getName()==CardDef.gold.getName()){
             return 20;
         }if(cardInfo.getName()==CardDef.platinum.getName()){
+            return 10;
+        }else{
             return 10;
         }
     }
