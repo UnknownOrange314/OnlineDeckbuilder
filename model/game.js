@@ -93,6 +93,7 @@ function Game(){
         while(randCards<10){
             var idx=Math.floor((Math.random())*CardDef.kingdomCards.length);
             var card=CardDef.kingdomCards[idx];
+            card.addSubtype(new KingdomCard());
             if(!(card.getName() in piles)){
                 randCards++;
                 piles[card.getName()]=new Pile(card);

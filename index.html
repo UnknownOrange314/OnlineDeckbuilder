@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Colonialism</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="lib/angular.min.js"></script>
 
     <script src="controller/base/chapelView.js"></script>
@@ -40,58 +40,77 @@
 
 <body ng-controller="PhoneListCtrl">
     <img class="bg" src="images/background.jpg" />
-        <div id="die">
-            <div id="title">Colonialism</div>
+        <div id="background">
                 <div id="supply"> <!--The area where the cards in the supply is shown -->
-
-                    <div id="actionSupply">
+                    <div class="kingdomCards">
                         <span ng-repeat="card in actionSupply">
-                            <div class="supplyCard">
-                                {{card.name}}
-                                <button class="cost-button">
-                                    <div class="cost-button-circle">{{card.cost}}</a></div>
-                                </button>
-                                <button class="{{card.name}}" ng-click="buyCard(card.name)"></button>
-                                <button class="supply-button">
-                                    <div class="supply-button-circle">{{card.num}}</a></div>
-                                </button>
-                                <br/>
-                                <p>{{card.rules}}
-                                    {{card.data}}
-                                </p>
+                            <div class="supplyCard smallCard" ng-click="buyCard(card.name)">
+                                <div class="cardContent">
+                                    <div class="cardTitle">
+                                        {{card.name}}
+                                    </div>
 
-                            </div>
-                        </span>
+                                    <div class="cardStats">
+                                        <button class="supply-button">
+                                            <div class="supply-button-circle">{{card.num}}</a></div>
+                                        </button>
+                                        <button class="cost-button">
+                                            <div class="cost-button-circle">{{card.cost}}</a></div>
+                                        </button>
+                                    </div>
 
-                        <span ng-repeat="card in victorySupply">
-                            <div class="supplyCard">
-                                {{card.name}}
-                                <button class="cost-button">
-                                    <div class="cost-button-circle">{{card.cost}}</a></div>
-                                </button>
-                                <button class="{{card.name}}" ng-click="buyCard(card.name)"></button> {{card.data}}
-                                <button class="supply-button">
-                                    <div class="supply-button-circle">{{card.num}}</a></div>
-                                </button>
-                            </div>
-                        </span>
-
-                        <span ng-repeat="card in treasureSupply">
-                            <div class="supplyCard">
-                                {{card.name}}
-                                <button class="cost-button">
-                                    <div class="cost-button-circle">{{card.cost}}</a></div>
-                                </button>
-                                <button class="{{card.name}}" ng-click="buyCard(card.name)"></button> {{card.data}}
-                                <button class="supply-button">
-                                    <div class="supply-button-circle">{{card.num}}</a></div>
-                                </button>
+                                    <button class="{{card.name}}" ></button>
+                                    <br/>
+                                    <div class="cardRules">
+                                        <p>{{card.rules}}
+                                            {{card.data}}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </span>
                     </div>
-                    <br>
-                </div>
 
+                    <div class="victoryPiles">
+                        <span ng-repeat="card in victorySupply">
+                            <div class="supplyCard smallCard Victory" ng-click="buyCard(card.name)">
+
+                                <div class="cardContent">
+                                    {{card.name}}
+                                    <button class="{{card.name}}" ></button> {{card.data}}
+                                </div>
+
+                                <div class="cardStats">
+                                    <button class="supply-button">
+                                        <div class="supply-button-circle">{{card.num}}</a></div>
+                                    </button>
+                                    <button class="cost-button">
+                                        <div class="cost-button-circle">{{card.cost}}</a></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+
+                    <div class="treasurePiles">
+                        <span ng-repeat="card in treasureSupply">
+                            <div  ng-click="buyCard(card.name)" class="supplyCard smallCard Treasure">
+                                <div class="cardContent">
+                                    {{card.name}}
+                                    <button class="{{card.name}}"></button> {{card.data}}
+                                </div>
+                                <div class="cardStats">
+                                    <button class="supply-button">
+                                        <div class="supply-button-circle">{{card.num}}</a></div>
+                                    </button>
+                                    <button class="cost-button">
+                                        <div class="cost-button-circle">{{card.cost}}</a></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
 
                 <div id="log">
                     <h3>Game log</h3>
@@ -101,12 +120,28 @@
                 </div>
 
                 <div id="play"> <!--The area where played card is shown -->
-                    <h3>Deployment area</h3>
-                                        <span ng-repeat="card in play">
-                                            {{card.name}}
-                                        </span>
+
                 </div>
+
                 <div id="playArea">
+                    <div id="hand"> <!-- The area where the player's hand is shown. -->
+                        <h3>Hand</h3>
+                        {{instructions}}
+                        <span ng-repeat="card in hand">
+                            <div class="supplyCard {{card.type}} {{card.selected}}" ng-click="playCard(card.id)">
+                                    {{card.selected}}
+                                    {{card.name}}<br/>
+                                    {{card.data}}<br/>
+                                    {{card.rules}}<br/>
+                                    {{card.cost}}
+                            </div>
+                        </span>
+                        <button ng-click="playTreasures()">Play treasures</button>
+                    </div>
+                    <button class="roll" ng-click="changeView()">{{end}}</button>
+                </div>
+
+                <div id="playInfo">
                     <div id="status"> <!-- The area where a player's status during a turn is shown. -->
                         <h3>Game status</h3>
                         <div id="money">{{money}}</div>
@@ -119,23 +154,12 @@
                         <h3>{{drawPile}}</h3>
                     </div>
 
-
-
-                    <div id="hand"> <!-- The area where the player's hand is shown. -->
-                        <h3>Hand</h3>
-                        {{instructions}}
-                        <span ng-repeat="card in hand">
-                            <button class="{{card.type}} {{card.selected}}" ng-click="playCard(card.id)">
-                                {{card.name}}<br/>
-                                {{card.data}}<br/>
-                                {{card.rules}}<br/>
-                                {{card.cost}}
-                            </button>
+                    <div id="playedCards">
+                        <h3>Deployment area</h3>
+                        <span ng-repeat="card in play">
+                            {{card.name}}
                         </span>
-                        <button ng-click="playTreasures()">Play treasures</button>
                     </div>
-                    <button class="roll" ng-click="changeView()">{{end}}</button>
-
                 </div>
         </div>
 </body>

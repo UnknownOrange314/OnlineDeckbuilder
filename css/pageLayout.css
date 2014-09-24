@@ -1,0 +1,46 @@
+/**
+This file represents the layout of the page.
+**/
+
+#supply{
+    width:800px;
+    height:560px;
+}
+
+#log{
+    width:200px;
+    position:absolute;
+    top:100px;
+    left:800px;
+}
+
+#playInfo{
+    width:200px;
+}
+
+#play{
+    float:right;
+}
+
+#playArea{
+    float:right;
+    width:700px;
+    position: absolute;
+    left:250px;
+}
+
+#status{
+    float:right;
+}
+
+#deckInfo{
+    float:right;
+}
+
+#hand{
+    float:right;
+}
+
+#playedCards{
+    float:right;
+}

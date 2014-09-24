@@ -1,20 +1,18 @@
 TODO
 
--Find a way to implement layout without using tables.
-    -Layout should look like old layout, but move the game status, and hand info
-    to the bottom.
-    -CSS supports scaling when hovering over, so we can have
-    small text and images for each card that scales when hovering over it.
--Fix cards so that they use terms not from Dominion.
--Fix the interface so that scrolling is not required.
+-Supply
+   -Add a plus button for cards that can be bought.
+
+-Game log
+    -Make sure log doesn't show raw JSON data.
+    -Add information in log to mention durations.
+
 -For chapel,enforce limit on number of cards that can be selected.
 -Show the names of empty piles.
--Add information in log to mention durations.
 -Show a list of duration cards.
--Add a plus button next to each card to indicate that it can be purchased.
--Hide "Play treasures" button when selecting options for a card.
--Figure out how to display game without scrolling.
 
+-Hide "Play treasures" button when selecting options for a card.
+-Reposition play
 
 Bugs
 

@@ -29,19 +29,16 @@ function Render(){
         cardInterface.resolvePlay();
     }
 
-
-
-
-    this.actionSupply=function(){
+    this.kingdomCards=function(){
         var data=[];
         var piles=game.getPileData();
         for(var i=0;i<piles.length;i++){
             var card=piles[i]['info'];
-            if(piles[i]['cardDef'].getMainType()==CardDef.Action){
+            if(piles[i]['cardDef'].hasType(CardDef.Kingdom)){
                 if(card==undefined){
                     data.push({'data':"Supply empty"})
                 }else{
-                    var cData=Render.getActionData(card);
+                    var cData=Render.getCardRender(piles[i]['info']);
                     cData['num']=piles[i]['num'];
                     data.push(cData);
                 }
@@ -56,7 +53,8 @@ function Render(){
         var piles=game.getPileData();
         for(var i=0;i<piles.length;i++){
             var card=piles[i]['info'];
-            if(piles[i]['cardDef'].getMainType()==CardDef.Treasure){
+            var cDef=piles[i]['cardDef']
+            if(cDef.getMainType()==CardDef.Treasure&&(!cDef.hasType(CardDef.Kingdom))){
                 if(card==undefined){
                     data.push({'data':"Supply empty"})
                 }else{
@@ -74,7 +72,8 @@ function Render(){
         var piles=game.getPileData();
         for(var i=0;i<piles.length;i++){
             var card=piles[i]['info'];
-            if(piles[i]['cardDef'].getMainType()==CardDef.Victory){
+            var cDef=piles[i]['cardDef'];
+            if(cDef.getMainType()==CardDef.Victory&&(!cDef.hasType(CardDef.Kingdom))){
                 if(card==undefined){
                     data.push({'data':"Supply empty"})
                 }else{
@@ -205,7 +204,7 @@ phonecatApp.controller('PhoneListCtrl', function($scope) {
     var refreshData=function(){
         $scope.end="End turn";
         $scope.log=game.getLogMessages();
-        $scope.actionSupply=game.actionSupply();
+        $scope.actionSupply=game.kingdomCards();
         $scope.treasureSupply=game.treasureSupply();
         $scope.victorySupply=game.victorySupply();
         if(game.gameEnd()==false){

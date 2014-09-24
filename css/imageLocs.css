@@ -1,0 +1,207 @@
+
+.Pence{
+    background-image: url(../images/base/State.png); /* 16px x 16px */
+}
+
+.Settlement{
+    background-image: url(../images/base/Settlement.png); /* 16px x 16px */
+}
+
+.District{
+    background-image: url(../images/base/District.png); /* 16px x 16px */
+}
+
+.State{
+    background-image: url(../images/base/State.png); /* 16px x 16px */
+}
+
+.Nation{
+    background-image: url(../images/base/Nation.png); /* 16px x 16px */
+}
+
+
+
+.Shilling{
+    background-image: url(../images/base/Hydrogen.png); /* 16px x 16px */
+}
+
+.Pound{
+    background-image: url(../images/base/Pound.png); /* 16px x 16px */
+}
+
+
+.Diamond{
+    background-image: url(../images/base/Diamond.png); /* 16px x 16px */
+}
+
+/**
+*Action cards
+*/
+
+.Miner{
+    background-image: url(../images/base/Miner.png); /* 16px x 16px */
+}
+
+.Base{
+    background-image: url(../images/Base.png); /* 16px x 16px */
+}
+
+.Camp{
+    background-image: url(../images/prosperity/Camp.png); /* 16px x 16px */
+}
+
+.Metalworker{
+    background-image: url(../images/base/Metalworker.png); /* 16px x 16px */
+}
+
+.Fair{
+    background-image: url(../images/base/Fair.png); /* 16px x 16px */
+}
+
+.Scientist{
+    background-image: url(../images/base/Scientist.png); /* 16px x 16px */
+}
+
+.Store{
+    background-image: url(../images/base/Store.png); /* 16px x 16px */
+}
+
+.Shop{
+    background-image: url(../images/base/Shop.png); /* 16px x 16px */
+}
+
+.Sorcerer{
+    background-image: url(../images/base/Sorcerer.png); /* 16px x 16px */
+}
+
+.Psychic{
+    background-image: url(../images/darkAges/Psychic.png); /* 16px x 16px */
+}
+
+.Slum{
+    background-image: url(../images/intrigue/Slum.png); /* 16px x 16px */
+}
+
+.Church{
+    background-image: url(../images/base/Church.png); /* 16px x 16px */
+}
+
+.Beacon{
+    background-image: url(../images/seaside/Beacon.png); /* 16px x 16px */
+}
+
+.Intersection{
+    background-image: url(../images/hinterlands/Intersection.png); /* 16px x 16px */
+}
+
+.Hut{
+    background-image: url(../images/darkAges/Hut.png); /* 16px x 16px */
+}
+
+.Vagabond{
+    background-image: url(../images/darkAges/Vagabond.png); /* 16px x 16px */
+}
+
+.Zoo{
+    background-image: url(../images/cornucopia/Zoo.png); /* 16px x 16px */
+}
+
+.Fisherman{
+    background-image: url(../images/seaside/Fisherman.png); /* 16px x 16px */
+}
+
+.Shaman{
+    background-image: url(../images/darkAges/Shaman.png); /* 16px x 16px */
+}
+
+.MeetingHall{
+    background-image: url(../images/intrigue/MeetingHall.png); /* 16px x 16px */
+}
+
+.Strategist{
+    background-image: url(../images/seaside/Strategist.png); /* 16px x 16px */
+}
+
+.Assembly{
+    background-image: url(../images/base/Assembly.png); /* 16px x 16px */
+}
+
+.OceanWitch{
+    background-image: url(../images/seaside/OceanWitch.png); /* 16px x 16px */
+}
+
+.TradeBoat{
+    background-image: url(../images/seaside/TradeBoat.png); /* 16px x 16px */
+}
+
+.Hunters{
+    background-image: url(../images/cornucopia/Hunters.png); /* 16px x 16px */
+}
+
+.TradingCompany{
+    background-image: url(../images/base/TradingCompany.png); /* 16px x 16px */
+}
+
+.Farm{
+    background-image: url(../images/cornucopia/Farm.png); /* 16px x 16px */
+}
+
+.Town{
+    background-image: url(../images/prosperity/Town.png); /* 16px x 16px */
+}
+
+.Reaping{
+    background-image: url(../images/cornucopia/Reaping.png); /* 16px x 16px */
+}
+
+.Pickpocket{
+    background-image: url(../images/seaside/Pickpocket.png); /* 16px x 16px */
+}
+
+.AccountOffice{
+    background-image: url(../images/prosperity/AccountOffice.png); /* 16px x 16px */
+}
+
+.Convoy{
+    background-image: url(../images/seaside/Convoy.png); /* 16px x 16px */
+}
+
+.Pier{
+    background-image: url(../images/seaside/Pier.png); /* 16px x 16px */
+}
+
+.Atlas{
+    background-image: url(../images/seaside/Atlas.png); /* 16px x 16px */
+}
+
+.Carnival{
+    background-image: url(../images/cornucopia/Carnival.png); /* 16px x 16px */
+}
+
+.Priest{
+    background-image: url(../images/intrigue/Priest.png); /* 16px x 16px */
+}
+
+.Plantation{
+    background-image: url(../images/intrigue/Plantation.png); /* 16px x 16px */
+}
+
+.Park{
+    background-image: url(../images/base/Park.png); /* 16px x 16px */
+}
+
+.MoneyHouse{
+    background-image: url(../images/darkAges/MoneyHouse.png); /* 16px x 16px */
+}
+
+.Stock{
+    background-image: url(../images/prosperity/Stock.png); /* 16px x 16px */
+}
+
+.Usurer{
+    background-image: url(../images/prosperity/Stock.png); /* 16px x 16px */
+}
+
+.tradingCompany{
+    background-image: url(../images/hinterlands/TradingCompany.png); /* 16px x 16px */
+}

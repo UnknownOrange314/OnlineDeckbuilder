@@ -126,12 +126,20 @@ function CardDef(cardData,cost,name,rules){
 }
 
 
+
 CardDef.Treasure="Treasure";
 CardDef.Victory="Victory";
 CardDef.Action="Action";
 CardDef.Ruins="Ruins";
 CardDef.CurseType="Curse";
 CardDef.Shelter="Shelter";
+CardDef.Kingdom="Kingdom";
+
+function KingdomCard(){
+    this.getMainType=function(){
+        return CardDef.Kingdom;
+    }
+}
 
 CardDef.curse=new CardDef(Curse.curse,0,"Curse");
 
