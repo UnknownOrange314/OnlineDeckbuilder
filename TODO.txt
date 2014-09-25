@@ -4,19 +4,32 @@ TODO
    -Add a plus button for cards that can be bought.
 
 -Game log
-    -Make sure log doesn't show raw JSON data.
     -Add information in log to mention durations.
+
+
 
 -For chapel,enforce limit on number of cards that can be selected.
 -Show the names of empty piles.
 -Show a list of duration cards.
 
--Hide "Play treasures" button when selecting options for a card.
--Reposition play
+-Show instructions for the special victory cards.
+-Add scrollbar for game log.
+-Prevent other cards from moving when hovering over one card.
+
+-For hunting party, show information in log about status of card.
+
+-Player hand
+    -Stack multiple copies of the same card.
+    -Make the style like the supply cards, but with the rule text visible.
+
 
 Bugs
 
--Treasure map does not cost an action.
+CSS
+-Updating the text shadow and font properties does nothing.
+
+Other
+-The Play Treasures button sometimes doesn't show up(Refactor before fixing this!!)
 -When attempting to draw with council room and the entire deck is drawn, there is an error.
 -When I have $10, and 2 buys, and I attempt to buy 2 scientists, the game
 says I don't have enough money for the second one.

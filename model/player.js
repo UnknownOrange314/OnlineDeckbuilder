@@ -18,11 +18,11 @@ function Player(game){
         discard.splice(discard.indexOf(card));
     }
 
-    //Does the player have any cards that block attacks.
+    //Does the player have any cards that block attacks?
     this.attackBlock=function(){
         var block=false;
         durations.forEach(function(card){
-            if(card.getData()==CardDef.Lighthouse){
+            if(card.getData()==CardDef.lighthouse){
                 block=true;
             }
         });
@@ -87,7 +87,7 @@ function Player(game){
 
     this.createDeck=function(){
         for(var i=0;i<3;i++){
-            var estate=new Card(CardDef.chapel);
+            var estate=new Card(CardDef.estate);
             estate.setOwner(this);
             discard.push(estate);
         }
@@ -199,7 +199,6 @@ function Player(game){
                 this.drawCards(card.getCards());
                 card.specialRules(this,game);
         }if(card.getMainType()==CardDef.Treasure){
-            console.log("Playing treasure");
             money+=card.data.getTreasureMoney();
             card.specialRules(this,game);
         }
@@ -308,7 +307,6 @@ function Player(game){
         var fullDeck=this.getFullDeck();
         var vp=0;
         fullDeck.forEach(function(card){
-            console.log(card.getName());
             vp+=card.getVP(fullDeck);
         });
         return vp;

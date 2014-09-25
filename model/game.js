@@ -9,7 +9,7 @@ function Game(){
     var log=new Log();
 
     this.playCardByID=function(idx){
-        p1.playCardByID(idx);
+        activePlayer.playCardByID(idx);
     }
 
     this.countEmptyPiles=function(){
@@ -82,7 +82,6 @@ function Game(){
         piles[CardDef.copper.getName()]=new Pile(CardDef.copper);
         piles[CardDef.silver.getName()]=new Pile(CardDef.silver);
         piles[CardDef.gold.getName()]=new Pile(CardDef.gold);
-        piles[CardDef.harem.getName()]=new Pile(CardDef.harem);
 
         piles[CardDef.estate.getName()]=new Pile(CardDef.estate);
         piles[CardDef.duchy.getName()]=new Pile(CardDef.duchy);
@@ -143,7 +142,7 @@ function Game(){
 
     this.playCardByID=function(id){
         var card=activePlayer.playCardByID(id);
-        log.push(card);
+        log.push("Played "+card.getName()+".");
         return card;
     }
 

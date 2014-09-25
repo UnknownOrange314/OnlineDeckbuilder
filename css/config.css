@@ -1,9 +1,7 @@
 /**
 This is a config file with the background image and styles for the whole page.
 **/
-body{
-    font-family: 'Playfair Display SC', serif;
-}
+
 
 #title{
     font-size:30px;
@@ -20,7 +18,6 @@ img.bg {
     position: fixed;
     top: 0;
     left: 0;
-
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */

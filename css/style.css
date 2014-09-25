@@ -1,176 +1,41 @@
 @import url(imageLocs.css);
-@import url(pageStyles.css);
+@import url(config.css);
 @import url(pageLayout.css);
+@import url(cardStyle.css);
+@import url(supplyStyle.css);
 
 /**
  * Styles for buttons
  */
-button {
-    margin-right:10px;
-    background-color: #D3002A;
+#turnInfo button {
+    border-top: 1px solid #e6e6e6;
+    background: #c0c0c0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#606060), to(#c0c0c0));
+    background: -webkit-linear-gradient(top, #606060, #c0c0c0);
+    background: -moz-linear-gradient(top, #606060, #c0c0c0);
+    background: -ms-linear-gradient(top, #606060, #c0c0c0);
+    background: -o-linear-gradient(top, #606060, #c0c0c0);
+    padding: 5.5px 11px;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
     color: #000000;
-    white-space: normal;
+    font-size: 14px;
+    font-family: Georgia, serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+#turnInfo button:hover {
+    border-top-color: #606060;
+    background: #606060;
+    color: #ccc;
 }
 
-.Treasure{
-    background-color: #FFA824;
-    color: #000000;
+#turnInfo button:active {
+    border-top-color: #606060;
+    background: #606060;
 }
-
-.Victory{
-    background-color: #414F12;
-    color: #000000;
-}
-
-/*This is when a button has been clicked on*/
-.true{
-    background-color: #ffffff;
-}
-
-/**
-*CSS for cards in supply pile.
-**/
-.cardTitle{
-   font-size:14px;
-}
-
-#supply button{
-    background-color: transparent; /* make the button transparent */
-    background-repeat: no-repeat;  /* make the background image appear only once */
-    background-position: 0px 0px;  /* equivalent to 'top left' */
-    border: none;           /* assuming we don't want any borders */
-    cursor: pointer;        /* make the cursor like hovering over an <a> element */
-    height: 40px;           /* make this the size of your image */
-    width:46px;
-    padding-left: 16px;     /* make text start to the right of the image */
-    vertical-align: middle; /* align the text vertically centered */
-}
-
-.supply-button {
-    width:25%;
-    pointer-events: none;
-    margin-right: 10px;
-}
-
-.supply-button-circle {
-    width: 100%;
-    height:0;
-    padding-bottom: 100%;
-    border-radius: 50%;
-    border:1px solid #cfdcec;
-    overflow:hidden;
-    background: #4679BD;
-    box-shadow: 0 0 3px gray;
-}
-
-.supply-button-circle:hover {
-    background:#30588e;
-}
-
-.cost-button {
-    width:25%;
-    pointer-events: none;
-}
-
-.cost-button-circle {
-    width: 100%;
-    height:0;
-    padding-bottom: 100%;
-    border-radius: 50%;
-    border:1px solid #cfdcec;
-    overflow:hidden;
-    background: #ffd700;
-    box-shadow: 0 0 1px gray;
-}
-
-.cost-button-circle:hover {
-    background:#30588e;
-}
-
-.cardContent{
-    height:100px;
-}
-.cardStats{
-    margin-bottom:10px;
-}
-
-/**
-*Styles for supply
-**/
-
-
-
-.kingdomCards{
-    position:relative;
-    float:right;
-    border:8px solid;
-    border-color:#FFCC33;
-    width:450px;
-    height:560px;
-    margin-left:-5px;
-}
-
-.treasurePiles{
-    float:right;
-    border:8px solid;
-    border-color:#FFCC33;
-    width:150px;
-    height:560px;
-    margin-left:-30px;
-}
-
-.victoryPiles{
-    float:right;
-    border:8px solid;
-    border-color:#FFCC33;
-    width:150px;
-    height:560px;
-}
-
-.supplyCard{
-    float:right;
-    width:120px;
-    height:150px;
-    margin:5px;
-    background-color:#888888;
-    border: 4px solid #000000;
-}
-
-.supplyCard .cardRules{
-    font-size:4px;
-    display: none;
-}
-
-.smallCard:hover{
-    height:250px;
-}
-
-.supplyCard:hover .cardRules{
-    font-size:12px;
-    display:block;
-}
-
-/*The way the cards are shown without the rules */
-.smallCard{
-    height:115px;
-}
-
-.smallCard .cardContent{
-    height:50px;
-}
-
-.Victory{
-    background-color:#437C17;
-}
-
-.Treasure{
-    background-color:#E9AB17;
-}
-
-.true{
-    background-color:#DDDDDD;
-}
-
-
-
-

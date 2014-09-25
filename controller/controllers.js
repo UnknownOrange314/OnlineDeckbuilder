@@ -53,10 +53,10 @@ function Render(){
         var piles=game.getPileData();
         for(var i=0;i<piles.length;i++){
             var card=piles[i]['info'];
-            var cDef=piles[i]['cardDef']
+            var cDef=piles[i]['cardDef'];
             if(cDef.getMainType()==CardDef.Treasure&&(!cDef.hasType(CardDef.Kingdom))){
                 if(card==undefined){
-                    data.push({'data':"Supply empty"})
+                    data.push({'data':"Supply empty"});
                 }else{
                     var tData=Render.getTreasureData(card);
                     tData['num']=piles[i]['num'];
@@ -149,7 +149,7 @@ Render.getActionData=function(card){
     var aData={'name':card.getName(),
         'cost':"$"+card.getCost(),
         'id':card.getID(),
-        'rules':card.getRules()}
+        'rules':card.getRules()};
     var data="";
     if(card.getActions()>0){
         data+="+"+card.getActions()+" mana ";
@@ -165,11 +165,11 @@ Render.getActionData=function(card){
 }
 
 Render.getTreasureData=function(card){
-    return {'name':card.getName(),'data':"+$"+card.getTreasureMoney(),'cost':"$"+card.getCost(),'id':card.getID()};
+    return {'rules':card.getRules(),'name':card.getName(),'data':"+$"+card.getTreasureMoney(),'cost':"$"+card.getCost(),'id':card.getID()};
 }
 
 Render.getVictoryData=function(card){
-    return {'name':card.getName(),'cost':"$"+card.getCost(),'data':"+"+card.getVP()+" VP",'id':card.getID()};
+    return {'rules':card.getRules(),'name':card.getName(),'cost':"$"+card.getCost(),'data':"+"+card.getVP()+" VP",'id':card.getID()};
 }
 
 Render.getCardRender=function(card){
@@ -191,15 +191,14 @@ Render.getCardRender=function(card){
 /* Controllers */
 var phonecatApp = angular.module('phonecatApp', []);
 
-phonecatApp.controller('PhoneListCtrl', function($scope) {
+phonecatApp.controller('GameCtrl', function($scope) {
 
     //TODO: Consider using separate objects for these.
     var playCard="End turn";
     var selectCard="Finish selecting";
-
     var curMode=playCard;
-
     var game=new Render();
+    var canPlayTreasures=true;
 
     var refreshData=function(){
         $scope.end="End turn";
@@ -231,15 +230,19 @@ phonecatApp.controller('PhoneListCtrl', function($scope) {
 
     refreshData();
 
+    $scope.showPlayTreasures=function(){
+        return canPlayTreasures;
+    }
+
     //Plays a card from a hand.
     $scope.playCard=function(id){
-
         if(curMode==playCard){
             var card=game.playCardByID(id);
             refreshData();
             if(card!=null){
                 game.setOptCard(card);
                 if(card.requiresInput()){
+                    canPlayTreasures=false;
                     curMode=selectCard;
                     $scope.hand=card.getUI(game.getActivePlayer(),game.selectedCards());
                     $scope.end="Finish playing";
@@ -266,6 +269,7 @@ phonecatApp.controller('PhoneListCtrl', function($scope) {
             game.endTurn();
             refreshData();
         }if(curMode==selectCard){
+            canPlayTreasures=true;
             curMode=playCard;
             game.resolvePlay();
             $scope.instructions="";
@@ -276,12 +280,8 @@ phonecatApp.controller('PhoneListCtrl', function($scope) {
 
     $scope.playTreasures=function(){
         game.playTreasures();
+        canPlayTreasures=false;
         refreshData();
-    }
-
-    //This is the function that is called when a card is played ig further input is required.
-    $scope.playOpt=function(id){
-
     }
 
 });

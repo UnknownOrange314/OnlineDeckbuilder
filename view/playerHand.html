@@ -1,0 +1,12 @@
+<div id="playArea">
+    <div id="hand"> <!-- The area where the player's hand is shown. -->
+        <span ng-repeat="card in hand">
+            <div class="gameCard {{card.type}} {{card.selected}}" ng-click="playCard(card.id)">
+                {{card.name}}<br/>
+                {{card.data}}<br/>
+                {{card.rules}}<br/>
+                {{card.cost}}
+            </div>
+        </span>
+    </div>
+</div>

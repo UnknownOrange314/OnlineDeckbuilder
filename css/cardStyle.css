@@ -1,0 +1,83 @@
+/**
+CSS for the game cards
+**/
+
+.cardTitle{
+    font-size:12px;
+}
+
+
+.cardContent button{
+    background-color: transparent; /* make the button transparent */
+    background-repeat: no-repeat;  /* make the background image appear only once */
+    background-position: 0px 0px;  /* equivalent to 'top left' */
+    border: none;           /* assuming we don't want any borders */
+    cursor: pointer;        /* make the cursor like hovering over an <a> element */
+    height: 40px;           /* make this the size of your image */
+    width:46px;
+    padding-left: 16px;     /* make text start to the right of the image */
+    vertical-align: middle; /* align the text vertically centered */
+}
+
+/* This is the CSS for buttons on the cards that show stats about the
+card such as cost and number remaining in supply */
+.infoButton{
+    width: 100%;
+    height:0;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    border:1px solid #cfdcec;
+    overflow:hidden;
+}
+
+.supply-button-circle {
+    background: #4679BD;
+    box-shadow: 0 0 3px gray;
+}
+
+.supply-button-circle:hover {
+    background:#30588e;
+}
+
+
+.cost-button-circle {
+    background: #ffd700;
+    box-shadow: 0 0 1px gray;
+}
+
+.cost-button-circle:hover {
+    background:#30588e;
+}
+
+.cardContent{
+    height:100px;
+}
+.cardStats{
+    margin-bottom:10px;
+}
+
+/* TODO: Edit the HTML so that these classes are defined in card.html. */
+.Victory{
+    background: linear-gradient(
+        #B5D27F,
+        #3C5219
+    );
+}
+
+.Treasure{
+    background: linear-gradient(
+        #D4AF37 ,
+        #794C18 50%,
+        #957140);
+}
+
+.Action{
+    background: linear-gradient(
+        #606060,
+        #E6E6E6 50%,
+        #C0C0C0);
+}
+
+.true{
+    background:#DDDDDD;
+}

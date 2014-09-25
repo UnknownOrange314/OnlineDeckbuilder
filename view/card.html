@@ -1,0 +1,23 @@
+<!-- This is the HTML for the game cards -->
+<div class="cardContent ">
+    <div class="cardTitle">
+        {{card.name}}
+    </div>
+
+    <div class="cardStats">
+        <button class="cardInfoButton">
+            <div class="supply-button-circle infoButton">{{card.num}}</a></div>
+        </button>
+        <button class="cardInfoButton">
+            <div class="cost-button-circle infoButton">{{card.cost}}</a></div>
+        </button>
+    </div>
+
+    <button class="{{card.name}} imageCont" ></button>
+    <br/>
+    <div class="cardRules">
+        <p>{{card.rules}}
+            {{card.data}}
+        </p>
+    </div>
+</div>

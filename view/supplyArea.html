@@ -1,0 +1,24 @@
+<div id="supply"> <!--The area where the cards in the supply is shown -->
+    <div class="kingdomCards">
+        <span ng-repeat="card in actionSupply">
+            <div class="gameCard smallCard {{card.type}}" ng-click="buyCard(card.name)">
+                <div ng-include src="'view/card.html'"></div>
+            </div>
+        </span>
+    </div>
+    <div class="victoryPiles">
+        <span ng-repeat="card in victorySupply">
+            <div class="gameCard smallCard Victory" ng-click="buyCard(card.name)">
+                <div ng-include src="'view/card.html'"></div>
+            </div>
+        </span>
+    </div>
+
+    <div class="treasurePiles">
+        <span ng-repeat="card in treasureSupply">
+            <div ng-click="buyCard(card.name)" class="gameCard smallCard Treasure">
+                <div ng-include src="'view/card.html'"></div>
+            </div>
+        </span>
+    </div>
+</div>

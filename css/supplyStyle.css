@@ -1,0 +1,55 @@
+/* CSS for the card supply */
+.kingdomCards{
+    position:relative;
+    float:right;
+    width:420px;
+    height:560px;
+    margin-left:-5px;
+}
+
+.treasurePiles{
+    float:right;
+    width:150px;
+    height:560px;
+    margin-left:-30px;
+}
+
+.victoryPiles{
+    float:right;
+    width:150px;
+    height:560px;
+}
+
+.gameCard {
+    float:right;
+    width:120px;
+    height:150px;
+    margin:5px;
+    background-color:#888888;
+    border-radius:8px;
+
+}
+
+.gameCard .cardRules{
+    font-size:4px;
+    display: none;
+}
+
+.kingdomCards .smallCard:hover{
+    height:250px;
+}
+
+.kingdomCards .gameCard:hover .cardRules{
+    font-size:12px;
+    display:block;
+}
+
+
+/*The way the cards are shown without the rules */
+.smallCard{
+    height:115px;
+}
+
+.smallCard .cardContent{
+    height:50px;
+}

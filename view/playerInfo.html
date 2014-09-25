@@ -1,0 +1,23 @@
+<div id="playInfo">
+
+    <div id="turnInfo">
+        <button ng-show="showPlayTreasures()" ng-click="playTreasures()">Play treasures</button>
+        <button class="roll" ng-click="changeView()">{{end}}</button>
+    </div>
+    <div id="status"> <!-- The area where a player's status during a turn is shown. -->
+        <div id="money">{{money}}</div>
+        <div id="actions">{{actions}}</div>
+        <div id="buys">{{buys}}</div>
+    </div>
+
+    <div id="deckInfo"> <!--Shows a player's discard pile. -->
+        <h3>{{discardPile}}</h3>
+        <h3>{{drawPile}}</h3>
+    </div>
+
+    <div id="playedCards">
+        <span ng-repeat="card in play">
+            {{card.name}}
+        </span>
+    </div>
+</div>

@@ -3,15 +3,23 @@ This file represents the layout of the page.
 **/
 
 #supply{
-    width:800px;
+    width:740px;
     height:560px;
 }
 
-#log{
+#info {
     width:200px;
     position:absolute;
     top:100px;
     left:800px;
+}
+
+#log{
+    height:460px;
+}
+
+#cardInstructions{
+    float:right;
 }
 
 #playInfo{
@@ -42,5 +50,7 @@ This file represents the layout of the page.
 }
 
 #playedCards{
+    position:relative;
+    top:-10px;
     float:right;
 }
