@@ -6,16 +6,12 @@ TODO
 -Game log
     -Add information in log to mention durations.
 
-
-
 -For chapel,enforce limit on number of cards that can be selected.
 -Show the names of empty piles.
 -Show a list of duration cards.
-
 -Show instructions for the special victory cards.
 -Add scrollbar for game log.
 -Prevent other cards from moving when hovering over one card.
-
 -For hunting party, show information in log about status of card.
 
 -Player hand
@@ -25,10 +21,7 @@ TODO
 
 Bugs
 
-CSS
--Updating the text shadow and font properties does nothing.
-
-Other
+-Updating the text shadow and font properties in the CSS does nothing.
 -The Play Treasures button sometimes doesn't show up(Refactor before fixing this!!)
 -When attempting to draw with council room and the entire deck is drawn, there is an error.
 -When I have $10, and 2 buys, and I attempt to buy 2 scientists, the game
