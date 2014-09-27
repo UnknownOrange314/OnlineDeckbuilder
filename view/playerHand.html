@@ -1,12 +1,11 @@
 <div id="playArea">
     <div id="hand"> <!-- The area where the player's hand is shown. -->
         <span ng-repeat="card in hand">
-            <div class="gameCard {{card.type}} {{card.selected}}" ng-click="playCard(card.id)">
-                {{card.name}}<br/>
-                {{card.data}}<br/>
-                {{card.rules}}<br/>
-                {{card.cost}}
-            </div>
+            <div class="gameCard {{card.type}} {{card.selected}}" ng-include src="'view/card.html'" ng-click="playCard(card.id)"></div>
         </span>
+    </div>
+    <div id="turnInfo">
+        <button ng-show="showPlayTreasures()" ng-click="playTreasures()">Play treasures</button>
+        <button class="roll" ng-click="changeView()">{{end}}</button>
     </div>
 </div>

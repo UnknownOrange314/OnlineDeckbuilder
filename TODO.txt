@@ -1,5 +1,10 @@
 TODO
 
+-Color theory.
+-Refactor JavaScript
+-Organize cards by cost.
+-Find a way to resize buttons.
+
 -Supply
    -Add a plus button for cards that can be bought.
 

@@ -279,13 +279,14 @@ CardDef.huntingParty=new CardDef(Action.huntingParty,5,"Hunters",
 "Reveal your hand. Reveal cards from your deck until you reveal a spell that isn't a duplicate of one in your hand. Put it into your hand and discard the rest");
 
 CardDef.councilRoom=new CardDef(Action.councilRoom,5,"Assembly",
-"Each other player draws a card");
+"Each other player draws a spell");
 
 CardDef.harvest=new CardDef(Action.harvest,5,"Reaping",
-"Trash a copper card from your hand. If you do +$3.");
+"Reveal the top 4 spells of your deck, then discard them. +$1" +
+    "per differently named card revealed");
 
 CardDef.countingHouse=new CardDef(Action.countingHouse,5,"AccountOffice",
-"Place all copper cards from your discard pile into your hand.");
+"Place all copper spell from your discard pile into your hand.");
 
 CardDef.adventurer=new CardDef(Action.adventurer,6,"TradingCompany",
 "Reveal spells from your deck until you reveal 2 treasure spells. Put those treasure cards from your hand and discard the other revealed cards.");

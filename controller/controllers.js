@@ -88,9 +88,33 @@ function Render(){
 
     this.handData=function(){
         var data=[];
+
         var hand=game.getActiveHand();
+        var showCounts=[];
+
+        function RenderObj(card,num){
+            this.card=card;
+            this.num=num;
+        }
+
         for(var i=0;i<hand.length;i++){
-            data.push(Render.getCardRender(hand[i]));
+            var card=hand[i];
+            var seen=false;
+            for(var j=0;j<showCounts.length;j++){
+                if(showCounts[j].card.getName()==card.getName()){
+                    showCounts[j].num++;
+                    seen=true;
+                }
+            }
+            if(seen==false){
+                showCounts.push(new RenderObj(card,1));
+            }
+        }
+        console.log(showCounts.length);
+        for(i=0;i<showCounts.length;i++){
+            var cRender=(Render.getCardRender(showCounts[i].card));
+            cRender["num"]=showCounts[i].num;
+            data.push(cRender);
         }
         return data;
     }
@@ -211,8 +235,8 @@ phonecatApp.controller('GameCtrl', function($scope) {
             $scope.play=game.playArea();
             var data=game.getPlayerStatus();
             $scope.money="$"+data["money"];
-            $scope.actions="Mana:"+data["actions"];
-            $scope.buys="Purchases:"+data["buys"];
+            $scope.actions=+data["actions"];
+            $scope.buys=data["buys"];
             $scope.discardPile="Discard pile: "+data["discard"]+" cards";
             $scope.drawPile="Draw pile:"+data["draw"]+" cards";
             $scope.orderProp = 'age';
@@ -236,6 +260,7 @@ phonecatApp.controller('GameCtrl', function($scope) {
 
     //Plays a card from a hand.
     $scope.playCard=function(id){
+        console.log("ID:"+id);
         if(curMode==playCard){
             var card=game.playCardByID(id);
             refreshData();

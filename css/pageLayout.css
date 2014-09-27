@@ -47,6 +47,8 @@ This file represents the layout of the page.
 
 #hand{
     float:right;
+    position:absolute;
+    top:50px;
 }
 
 #playedCards{

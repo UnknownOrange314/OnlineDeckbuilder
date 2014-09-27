@@ -39,3 +39,31 @@
     border-top-color: #606060;
     background: #606060;
 }
+
+.circleButton{
+    width: 100%;
+    height:0;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    border:1px solid #cfdcec;
+    overflow:hidden;
+}
+
+
+/* This is a container div that is necessary to create a circle. */
+.statusDiv{
+
+    position: relative;
+}
+
+.cont{
+    width:60px;
+}
+
+/* This div is for information about a player turn */
+.statusButton{
+    background: -webkit-linear-gradient(top, #5F9F9F, #5F9F9F, lightblue);
+    background: -moz-linear-gradient(top, #606060, #c0c0c0);
+    background: -o-linear-gradient(top, #5F9F9F, #5F9F9F, lightblue);
+    background: -ms-linear-gradient(top, #5F9F9F, #5F9F9F, lightblue);
+}
